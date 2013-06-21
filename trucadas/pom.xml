@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.hg</groupId>
+	<artifactId>trucadas</artifactId>
+	<version>${trucadas.version}</version>
+	<packaging>pom</packaging>
+	<name>trucadas</name>
+	<url>http://github.com/hgeraldino/trucadas</url>
+	<modules>
+		<module>trucadas-model</module>
+		<module>trucadas-engine</module>
+		<module>trucadas-event-processor</module>
+		<module>trucadas-persist</module>
+	</modules>
+
+	<properties>
+		<spring.version>3.1.2.RELEASE</spring.version>
+		<trucadas.version>0.0.1-SNAPSHOT</trucadas.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+	</dependencies>
+</project>
