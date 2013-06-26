@@ -3,7 +3,7 @@
   <parent>
     <groupId>net.hg</groupId>
     <artifactId>trucadas</artifactId>
-    <version>${trucadas.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>trucadas-persist</artifactId>
   <name>trucadas-persist</name>

@@ -1,4 +1,4 @@
-package net.hg.trucadas.model.domain;
+package net.hg.trucadas.model.domain.event;
 
 import java.io.Serializable;
 import java.util.Map;
