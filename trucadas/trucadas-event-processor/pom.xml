@@ -15,10 +15,5 @@
 			<artifactId>trucadas-engine</artifactId>
 			<version>${trucadas.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>net.hg</groupId>
-			<artifactId>trucadas-model</artifactId>
-			<version>${trucadas.version}</version>
-		</dependency>
 	</dependencies>
 </project>

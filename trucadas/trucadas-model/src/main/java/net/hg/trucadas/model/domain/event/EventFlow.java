@@ -53,25 +53,55 @@ public class EventFlow implements Serializable {
         this.steps = steps;
     }
 
-    /**
-     * Builds a {@link EventFlow} from an XML definition
-     * 
-     * @param is
-     * @return
-     */
     public static EventFlow buildFromXml(InputStream is) {
         return null;
     }
 
-    /**
-     * Builds an {@link EventFlow} instance from an JSON (JavaScript Object
-     * Notation) definition.
-     * 
-     * @param is
-     * @return
-     */
-    public static EventFlow buildFromJson(InputStream is) {
-        return null;
+    public static EventFlowBuilder builder() {
+        return EventFlowBuilder.builder();
+    }
+
+    static class EventFlowBuilder {
+
+        private enum InputFormat {
+            XML, JSON
+        };
+
+        private InputStream inputStream;
+
+        private InputFormat format;
+
+        public static EventFlowBuilder builder() {
+            return new EventFlowBuilder();
+        }
+
+        public EventFlowBuilder setXmlDefinition(InputStream in) {
+            this.format = InputFormat.XML;
+            this.inputStream = in;
+            return this;
+        }
+
+        public EventFlowBuilder setJsonDefinition(InputStream in) {
+            this.format = InputFormat.JSON;
+            this.inputStream = in;
+            return this;
+        }
+
+        /**
+         * Builds a {@link EventFlow} from an XML/JSON definition.
+         * 
+         * The definition must be set by calling the
+         * {@link EventFlowBuilder#setXmlDefinition(InputStream)} or
+         * {@link EventFlowBuilder#setJsonDefinition(InputStream)} methods
+         * before calling the {@link EventFlowBuilder#build()} method
+         * 
+         * @return
+         */
+
+        public EventFlow build() {
+            return new EventFlow();
+        }
+
     }
 
 }

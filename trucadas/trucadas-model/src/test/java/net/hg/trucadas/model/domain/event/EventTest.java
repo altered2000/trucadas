@@ -3,11 +3,7 @@ package net.hg.trucadas.model.domain.event;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
-import java.util.Map;
-
 import junit.framework.Assert;
-import net.hg.trucadas.model.domain.util.EslEventBuilder;
 
 import org.freeswitch.esl.client.transport.event.EslEvent;
 import org.junit.Before;

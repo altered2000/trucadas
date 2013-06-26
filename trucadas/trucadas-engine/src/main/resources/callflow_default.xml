@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CallFlows>
+	<Hotline name="amtrak">
+		<Flow>
+			<Step id="1">
+				<ActionHandler bean-ref="playAudioActionHandler">
+					<Properties>
+						<property name="audioFilePath" value="/apps/freeswitch/audio/prompts/Amtrak_Welcome.wav" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="2" />
+				</Paths>
+			</Step>
+			<Step id="2">
+				<ActionHandler bean-ref="playAudioActionHandler">
+					<Properties>
+						<property name="audioFilePath" value="/apps/freeswitch/audio/prompts/callmonitored.wav" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="3" />
+				</Paths>
+			</Step>
+			<Step id="3">
+				<ActionHandler bean-ref="customerRecognitionActionHandler">
+					<Properties />
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="6" />
+					<path id="altNext" step="6" />
+				</Paths>
+			</Step>
+			<Step id="4">
+				<ActionHandler bean-ref="playAudioActionHandler">
+					<Properties>
+						<property name="audioFilePath" value="/apps/freeswitch/audio/prompts/mobile_number_prompt.wav" />
+						<property name="lockAudioPlayback" value="false" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="5" />
+				</Paths>
+			</Step>
+			<Step id="5">
+				<ActionHandler bean-ref="enterPhoneNumberActionHandler">
+					<Properties>
+						<property name="timeout" value="25" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="6" />
+					<path id="altNext" step="6" />
+				</Paths>
+			</Step>
+			<Step id="6">
+				<ActionHandler bean-ref="queueActionHandler">
+					<Properties />
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="7" />
+				</Paths>
+			</Step>
+			<Step id="7">
+				<ActionHandler bean-ref="playAudioActionHandler">
+					<Properties>
+						<property name="audioFilePath" value="/apps/freeswitch/audio/fur_elise.wav" />
+						<property name="lockAudioPlayback" value="false" />
+						<property name="loops" value="-1" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="8" />
+				</Paths>
+			</Step>
+			<Step id="8">
+				<ActionHandler bean-ref="timerActionHandler">
+					<Properties>
+						<property name="timeout" value="60" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="9" />
+				</Paths>
+			</Step>
+			<Step id="9">
+				<ActionHandler bean-ref="callBridgedActionHandler">
+					<Properties />
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="11" />
+					<path id="altNext" step="10" />
+				</Paths>
+			</Step>
+			<Step id="10">
+				<ActionHandler bean-ref="playAudioActionHandler">
+					<Properties>
+						<property name="audioFilePath" value="/apps/freeswitch/audio/prompts/ICDQueue.wav" />
+						<property name="lockAudioPlayback" value="true" />
+						<property name="replay" value="true" />
+					</Properties>
+				</ActionHandler>
+				<Paths>
+					<path id="next" step="8" />
+				</Paths>
+			</Step>
+			<Step id="11">
+				<ActionHandler bean-ref="noopActionHandler">
+					<Properties />
+				</ActionHandler>
+				<Paths />
+			</Step>
+		</Flow>
+	</Hotline>
+</CallFlows>
